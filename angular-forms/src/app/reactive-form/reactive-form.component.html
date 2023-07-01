@@ -1,0 +1,103 @@
+<div class="bg-secondary">
+    <div class="container">
+      <div class="row">
+        <form class="row g-3" [formGroup]="detailsReactiveForm" (ngSubmit)="addDetails()">
+          <div class="col-12">
+            <input
+              type="text"
+              class="form-control"
+              id="inputEmail4"
+              placeholder="Enter Your name"
+              formControlName="name"
+            />
+            <div *ngIf="detailsReactiveForm.get('name')?.hasError('required') && !detailsReactiveForm.pristine">
+              <span class="text-danger">Name is Required</span>
+            </div>
+          </div>
+          <div class="col-12">
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail4"
+              placeholder="Enter your Email"
+              formControlName="email"
+            />
+            <div *ngIf="detailsReactiveForm.get('email')?.hasError('required') && !detailsReactiveForm.pristine">
+              <span class="text-danger">Email is Required</span>
+            </div>
+          </div>
+          <div class="col-12">
+            <input
+              type="password"
+              class="form-control"
+              id="inputPassword4"
+              placeholder="Enter Password"
+              formControlName="password"
+            />
+          </div>
+          <div class="col-12">
+            <input
+              type="text"
+              class="form-control"
+              id="inputAddress"
+              placeholder="Address 1"
+              formControlName="address1"
+            />
+          </div>
+          <div class="col-12">
+            <input
+              type="text"
+              class="form-control"
+              id="inputAddress2"
+              placeholder="Address 2"
+              formControlName="address2"
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="inputCity"
+              placeholder="City"
+              formControlName="city"
+            />
+          </div>
+          <div class="col-md-4">
+            <select id="inputState" class="form-select" formControlName="state">
+              <option selected>Choose State</option>
+              <option>Maharashtra</option>
+              <option>M.P</option>
+              <option>U.P</option>
+              <option>J&K</option>
+              <option>Delhi</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <input
+              type="text"
+              class="form-control"
+              id="inputZip"
+              placeholder="Zip"
+              formControlName="zip"
+            />
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="check" />
+              <label class="form-check-label" for="gridCheck">
+                Check me out
+              </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-success me-3" [disabled]="detailsReactiveForm.invalid">Submit</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- {{detailsReactiveForm.value | json}}
+  {{detailsReactiveForm.errors | json}} -->
+  

@@ -1,0 +1,140 @@
+<div class="bg-info">
+  <div class="container">
+    <div class="row">
+      <form
+        class="row g-3"
+        #templateDetailsForm="ngForm"
+        (ngSubmit)="addDetails(templateDetailsForm)"
+      >
+        <div class="col-12">
+          <input
+            type="text"
+            class="form-control"
+            id="inputEmail4"
+            placeholder="Enter Your name"
+            [(ngModel)]="detailsForm.name"
+            #name="ngModel"
+            name="name"
+            required
+            minlength="5"
+          />
+          <div *ngIf="name.errors?.['required'] && !templateDetailsForm.pristine">
+            <span class="text-danger">Name Field is Required</span>
+          </div>
+        </div>
+        <div class="col-12">
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail4"
+            placeholder="Enter your Email"
+            [(ngModel)]="detailsForm.email"
+            #email="ngModel"
+            name="email"
+          />
+        </div>
+        <div class="col-12">
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword4"
+            placeholder="Enter Password"
+            [(ngModel)]="detailsForm.password"
+            #password="ngModel"
+            name="password"
+            required
+          />
+        </div>
+        <div class="col-12">
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            placeholder="Address 1"
+            [(ngModel)]="detailsForm.address1"
+            #address1="ngModel"
+            name="address1"
+            required
+          />
+        </div>
+        <div class="col-12">
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress2"
+            placeholder="Address 2"
+            [(ngModel)]="detailsForm.address2"
+            #address2="ngModel"
+            name="address2"
+            required
+          />
+        </div>
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            id="inputCity"
+            placeholder="City"
+            [(ngModel)]="detailsForm.city"
+            #city="ngModel"
+            name="city"
+            required
+          />
+        </div>
+        <div class="col-md-4">
+          <select
+            id="inputState"
+            class="form-select"
+            [(ngModel)]="detailsForm.state"
+            #state="ngModel"
+            name="state"
+            required
+          >
+            <option selected>Choose State</option>
+            <option>Maharashtra</option>
+            <option>M.P</option>
+            <option>U.P</option>
+            <option>J&K</option>
+            <option>Delhi</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <input
+            type="text"
+            class="form-control"
+            id="inputZip"
+            placeholder="Zip"
+            [(ngModel)]="detailsForm.zip"
+            #zip="ngModel"
+            name="zip"
+            required
+          />
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="gridCheck"
+              [(ngModel)]="detailsForm.check"
+              #check="ngModel"
+              name="check"
+              required
+            />
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-success me-3" [disabled]="templateDetailsForm.invalid">Submit</button>
+          <button type="reset" class="btn btn-primary">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- {{ detailsForm | json }}
+{{ templateDetailsForm.pristine | json }}
+{{ templateDetailsForm.dirty | json }}
+{{ templateDetailsForm.valid | json }} -->
